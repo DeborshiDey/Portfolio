@@ -62,15 +62,15 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-[#0F1720]">
+    <section id="experience" className="py-16 bg-[#0F1720] scroll-mt-24">
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-white mb-4">Experience & Education</h2>
           <div className="w-24 h-1 bg-cyan-500 mx-auto mb-8"></div>
         </div>
 
         {/* Professional Experience */}
-        <div className="mb-20">
+        <div className="mb-12">
           <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
             <Briefcase className="h-6 w-6 mr-3 text-cyan-500" />
             Professional Experience
@@ -115,7 +115,7 @@ const Experience: React.FC = () => {
         </div>
 
         {/* Education */}
-        <div className="mb-20">
+        <div className="mb-12">
           <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
             <GraduationCap className="h-6 w-6 mr-3 text-cyan-500" />
             Education

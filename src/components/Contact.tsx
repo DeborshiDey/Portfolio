@@ -10,6 +10,7 @@ const Contact: React.FC = () => {
     subject: 'Hiring',
     message: '',
     attachResume: false,
+    website: ''
   });
   const [sending, setSending] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
@@ -32,6 +33,12 @@ const Contact: React.FC = () => {
     e.preventDefault();
     setSending(true);
     setStatus(null);
+    if (formData.website) {
+      setStatus('Message sent.');
+      setSending(false);
+      setFormData({ name: '', email: '', subject: 'Hiring', message: '', attachResume: false, website: '' });
+      return;
+    }
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
@@ -58,7 +65,7 @@ const Contact: React.FC = () => {
         { publicKey }
       );
       setStatus('Message sent successfully.');
-      setFormData({ name: '', email: '', subject: 'Hiring', message: '', attachResume: false });
+      setFormData({ name: '', email: '', subject: 'Hiring', message: '', attachResume: false, website: '' });
     } catch (err) {
       setStatus('Failed to send message.');
     } finally {
@@ -170,6 +177,7 @@ const Contact: React.FC = () => {
             <div className="bg-white rounded-xl shadow-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Me a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
+                <input type="text" name="website" value={formData.website} onChange={handleChange} className="hidden" aria-hidden="true" tabIndex={-1} autoComplete="off" />
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Full Name *

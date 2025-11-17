@@ -76,9 +76,9 @@ const Skills: React.FC = () => {
   );
 
   return (
-    <section id="skills" className="py-20 bg-[#0F1720]">
+    <section id="skills" className="py-16 bg-[#0F1720] scroll-mt-24">
       <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-white mb-4">Technical Skills</h2>
           <div className="w-24 h-1 bg-cyan-500 mx-auto mb-8"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -87,7 +87,7 @@ const Skills: React.FC = () => {
         </div>
 
         {/* Skill Categories */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {skillCategories.map((category, index) => (
             <div key={index} className="bg-white/5 border border-white/10 rounded-xl p-8 hover:bg-white/10 transition-colors">
               <div className="flex items-center mb-6">
