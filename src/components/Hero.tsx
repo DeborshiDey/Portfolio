@@ -5,7 +5,7 @@ import { siteConfig } from '@/lib/siteConfig';
 const Hero: React.FC = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0F1720] to-[#0b1220] pt-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-12 py-16">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div className="mb-8 md:mb-0 flex justify-center md:justify-start">
             <img

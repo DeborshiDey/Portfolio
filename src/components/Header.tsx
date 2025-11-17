@@ -20,7 +20,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-[#0F1720]/80 backdrop-blur-md z-50 border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center py-4">
           {/* Logo/Name */}
           <div className="flex-shrink-0">
