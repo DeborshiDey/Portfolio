@@ -16,12 +16,12 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {siteConfig.headline}
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 text-center">
+              Deborshi Dey
             </h1>
-            <p className="text-lg text-gray-300 mb-6 max-w-2xl leading-relaxed">
-              {siteConfig.subheadline}
-            </p>
+            <h2 className="text-xl md:text-2xl font-semibold text-cyan-400 mb-6 text-center">
+              Data Scientist | Misinfo and Geopolitical Analysts
+            </h2>
             <div className="flex flex-col sm:flex-row gap-4 md:justify-start justify-center mb-8">
               <a
                 href="#projects"
