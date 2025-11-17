@@ -23,16 +23,16 @@ const About: React.FC = () => {
 
   return (
     <section id="about" className="py-18 bg-[#0F1720] scroll-mt-24">
-      <div className="max-w-screen-lg mx-auto px-6">
+      <div className="w-full px-6 md:px-10 lg:px-12">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-white mb-4 mt-2">About</h2>
           <div className="w-24 h-1 bg-cyan-500 mx-auto mb-8"></div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 justify-items-center">
+        <div className="grid grid-cols-1 gap-8 justify-items-stretch w-full">
           {/* Professional Summary */}
           <div>
-            <div className="space-y-4 text-gray-300 text-center max-w-3xl mx-auto">
+            <div className="space-y-4 text-gray-300 text-center w-full">
               <p className="text-lg leading-relaxed">
                 I’m Deborshi Dey — a data scientist with a background in statistics and {siteConfig.experienceYears} of experience across open-source intelligence (OSINT) and misinformation screening, transitioning into broader ML, NLP, and analytics.
               </p>
@@ -53,7 +53,7 @@ const About: React.FC = () => {
             </div>
 
             {/* Key Highlights */}
-            <div className="grid sm:grid-cols-2 gap-4 justify-center mt-6">
+            <div className="grid sm:grid-cols-2 gap-4 justify-center mt-6 w-full">
               {highlights.map((highlight, index) => (
                 <div key={index} className="flex items-start space-x-3">
                   <div className="flex-shrink-0">
@@ -79,7 +79,7 @@ const About: React.FC = () => {
         </div>
 
         {/* Core Skills */}
-        <div className="mt-10 bg-white/5 border border-white/10 rounded-2xl p-6">
+        <div className="mt-10 bg-white/5 border border-white/10 rounded-2xl p-6 w-full">
           <h3 className="text-2xl font-bold text-white mb-6 text-center">Core Skills</h3>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
             <div className="bg-white/5 rounded-xl p-5 border border-white/10">

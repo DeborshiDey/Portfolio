@@ -14,15 +14,15 @@ const Hero: React.FC = () => {
               className="w-60 h-60 rounded-full object-cover shadow-xl ring-4 ring-white/10 md:ml-10"
               loading="lazy"
             />
-            <h1 className="mt-4 text-4xl md:text-5xl font-bold text-white text-center">Deborshi Dey</h1>
-            <h2 className="text-xl md:text-2xl font-semibold text-cyan-400 text-center">
+            <h1 className="mt-4 text-4xl md:text-5xl font-bold text-white text-center md:ml-10">Deborshi Dey</h1>
+            <h2 className="text-xl md:text-2xl font-semibold text-cyan-400 text-center md:ml-10 mt-2">
               <span className="block">Data Science | ML &amp; NLP</span>
-              <span className="block">Minfo and Geopolitical Risk Analyst</span>
+              <span className="block mt-0.5">Minfo and Geopolitical Risk Analyst</span>
             </h2>
           </div>
 
           <div className="text-center md:text-left">
-            <div className="flex flex-col sm:flex-row gap-4 md:justify-start justify-center mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full mb-8">
               <a
                 href="#projects"
                 className="inline-flex items-center px-8 py-3 bg-cyan-500 text-black font-semibold rounded-lg hover:bg-cyan-400 transition-colors shadow-lg"
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
                 Contact / Hire Me
               </a>
             </div>
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-4 w-full">
               <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-gray-300 hover:bg-white/10 transition-colors">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center">
