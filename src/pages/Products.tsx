@@ -15,21 +15,6 @@ const Products: React.FC = () => {
                     <p className="text-lg text-gray-400 leading-relaxed">
                         A collection of tools and applications I've built to solve real-world problems.
                         Explore my latest work below.
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {/* CV Builder Product Card */}
-                    <a
-                        href="https://deborshi.in/cv-builder"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/10 overflow-hidden"
-                    >
-                        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <FileText className="w-24 h-24 text-cyan-400" />
-                        </div>
-
                         <div className="relative z-10 flex flex-col h-full">
                             <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                 <FileText className="w-6 h-6 text-cyan-400" />
