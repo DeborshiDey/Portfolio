@@ -21,7 +21,7 @@ const Products: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {/* CV Builder Product Card */}
                     <a
-                        href="http://localhost:3000"
+                        href="https://deborshi.in/cv-builder"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/10 overflow-hidden"
