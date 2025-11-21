@@ -1,3 +1,5 @@
+import { TemplateId } from "./templates";
+
 export interface Experience {
   id: string;
   company: string;
@@ -37,7 +39,7 @@ export interface CVData {
   skills: string[]; // Deprecated, kept for backward compatibility
   hardSkills: string[];
   softSkills: string[];
-  selectedTemplate: "classic" | "modern" | "minimal" | "executive";
+  selectedTemplate: TemplateId;
 }
 
 export const initialCVData: CVData = {
