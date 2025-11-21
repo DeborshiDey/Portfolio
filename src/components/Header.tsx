@@ -6,11 +6,12 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Resume', href: '#resume' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '/#about' },
+    { name: 'Skills', href: '/#skills' },
+    { name: 'Projects', href: '/#projects' },
+    { name: 'Products', href: '/products' },
+    { name: 'Resume', href: '/#resume' },
+    { name: 'Contact', href: '/#contact' },
   ];
 
   const socialLinks = [
@@ -25,7 +26,7 @@ const Header: React.FC = () => {
           {/* Logo/Name */}
           <div className="flex-shrink-0">
             <h1 className="text-2xl font-bold text-white hover:text-cyan-400 transition-colors">
-              <a href="#home">{siteConfig.name}</a>
+              <a href="/">{siteConfig.name}</a>
             </h1>
             <p className="text-sm text-gray-300">{siteConfig.title}</p>
           </div>
