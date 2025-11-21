@@ -1,3 +1,12 @@
+import React from "react";
+import { Document, Page, Text, View, StyleSheet, Font } from "@react-pdf/renderer";
+import { CVData } from "@/lib/cv/types";
+import { getTemplate, Template } from "@/lib/cv/templates";
+
+// Register fonts
+Font.register({
+    family: "Helvetica",
+    fonts: [{ src: "https://fonts.gstatic.com/s/helvetica/v1/Helvetica.ttf" }],
 });
 
 const styles = StyleSheet.create({
