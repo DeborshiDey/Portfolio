@@ -46,7 +46,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       INSTRUCTIONS:
       1. Tailor the professional summary to align with the target job.
       2. For each experience entry, rewrite the description to highlight relevant skills and achievements for this role.
-      3. Suggest the most relevant skills to emphasize (from the existing skills list).
+      3. Select the most relevant hard skills and soft skills to emphasize (from the existing skills list).
       4. Make it ATS-friendly with keywords from the job description.
       5. Return ONLY valid JSON - no explanatory text.
       
@@ -60,18 +60,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             "description": "Tailored description focusing on relevant achievements"
           }
         ],
-        "skills": ["Most relevant skill 1", "Most relevant skill 2", ...]
+        "hardSkills": ["Skill 1", "Skill 2"],
+        "softSkills": ["Skill 1", "Skill 2"]
       }
     `;
 
     const result = await model.generateContent(prompt);
     const response = await result.response;
-    let text = response.text().trim();
+    const text = response.text().trim();
 
-    // Remove markdown code blocks if present
-    text = text.replace(/```json\n?/g, "").replace(/```\n?/g, "");
+    // Robust JSON extraction
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    const jsonString = jsonMatch ? jsonMatch[0] : text;
 
-    const tailoredData = JSON.parse(text);
+    const tailoredData = JSON.parse(jsonString);
 
     return res.status(200).json(tailoredData);
   } catch (error) {

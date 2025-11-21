@@ -58,12 +58,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
         const result = await model.generateContent(prompt);
         const response = await result.response;
-        let text = response.text().trim();
+        const text = response.text().trim();
 
-        // Remove markdown code blocks if present
-        text = text.replace(/```json\n?/g, "").replace(/```\n?/g, "");
+        // Robust JSON extraction for array
+        const jsonMatch = text.match(/\[[\s\S]*\]/);
+        const jsonString = jsonMatch ? jsonMatch[0] : text;
 
-        const experience = JSON.parse(text);
+        const experience = JSON.parse(jsonString);
 
         return res.status(200).json({ experience });
     } catch (error) {

@@ -114,7 +114,7 @@ export default function CVForm({ data, onChange }: CVFormProps) {
             });
         } catch (error) {
             console.error(error);
-            alert("Failed to tailor CV. Please check your API key.");
+            alert("Failed to tailor CV. Please try again or check your connection.");
         } finally {
             setIsTailoring(false);
         }
@@ -141,7 +141,7 @@ export default function CVForm({ data, onChange }: CVFormProps) {
             handleChange("personalInfo", "summary", summary);
         } catch (error) {
             console.error("AI Generation Error:", error);
-            alert(`Failed to generate summary: ${error instanceof Error ? error.message : "Unknown error"}`);
+            alert(`Failed to generate summary: ${error instanceof Error ? error.message : "Please try again"}`);
         } finally {
             setIsGeneratingSummary(false);
         }
