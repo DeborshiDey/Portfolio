@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import { FileText, ArrowRight, Sparkles } from 'lucide-react';
 
@@ -15,6 +16,17 @@ const Products: React.FC = () => {
                     <p className="text-lg text-gray-400 leading-relaxed">
                         A collection of tools and applications I've built to solve real-world problems.
                         Explore my latest work below.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl">
+                    {/* CV Builder Card */}
+                    <Link
+                        to="/cv-builder"
+                        className="group relative bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-cyan-400/50 transition-all duration-300"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+
                         <div className="relative z-10 flex flex-col h-full">
                             <div className="w-12 h-12 bg-cyan-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                                 <FileText className="w-6 h-6 text-cyan-400" />
@@ -32,7 +44,7 @@ const Products: React.FC = () => {
                                 Launch App <ArrowRight className="w-4 h-4 ml-2" />
                             </div>
                         </div>
-                    </a>
+                    </Link>
 
                     {/* Coming Soon Placeholder */}
                     <div className="group relative bg-white/5 border border-white/5 rounded-2xl p-6 border-dashed">
