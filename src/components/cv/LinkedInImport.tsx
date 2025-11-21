@@ -1,7 +1,6 @@
-"use client";
-
 import { useState } from "react";
 import { Loader2, Upload, Linkedin } from "lucide-react";
+import { API_ENDPOINTS } from "@/lib/cv/api-config";
 
 interface Experience {
     id: string;
@@ -31,7 +30,7 @@ export default function LinkedInImport({ onImport, onClose }: LinkedInImportProp
 
         setIsParsing(true);
         try {
-            const response = await fetch("/.netlify/functions/parse-linkedin", {
+            const response = await fetch(API_ENDPOINTS.parseLinkedIn, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ linkedInText }),

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { CVData, Experience, Education } from "@/lib/cv/types";
 import { Plus, Trash2, Sparkles, Loader2, Linkedin, Wand2 } from "lucide-react";
 import LinkedInImport from "./LinkedInImport";
+import { API_ENDPOINTS } from "@/lib/cv/api-config";
 
 interface CVFormProps {
     data: CVData;
@@ -85,7 +86,7 @@ export default function CVForm({ data, onChange }: CVFormProps) {
 
         setIsTailoring(true);
         try {
-            const response = await fetch("/.netlify/functions/tailor-cv", {
+            const response = await fetch(API_ENDPOINTS.tailorCV, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ cvData: data }),
@@ -122,7 +123,7 @@ export default function CVForm({ data, onChange }: CVFormProps) {
     const handleGenerateSummary = async () => {
         setIsGeneratingSummary(true);
         try {
-            const response = await fetch("/.netlify/functions/generate-summary", {
+            const response = await fetch(API_ENDPOINTS.generateSummary, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -155,7 +156,7 @@ export default function CVForm({ data, onChange }: CVFormProps) {
 
         setEnhancingExperienceId(exp.id);
         try {
-            const response = await fetch("/.netlify/functions/enhance-experience", {
+            const response = await fetch(API_ENDPOINTS.enhanceExperience, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
