@@ -1,36 +1,36 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
-const apiKey = process.env.VITE_GEMINI_API_KEY;
+const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey || "");
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    // Handle CORS
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  // Handle CORS
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
 
-    if (req.method === "OPTIONS") {
-        return res.status(200).end();
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  if (!apiKey) {
+    return res.status(500).json({ error: "GEMINI_API_KEY is not set" });
+  }
+
+  try {
+    const { cvData } = req.body;
+
+    if (!cvData || !cvData.targetJob) {
+      return res.status(400).json({ error: "CV data and target job are required" });
     }
 
-    if (req.method !== "POST") {
-        return res.status(405).json({ error: "Method not allowed" });
-    }
-
-    if (!apiKey) {
-        return res.status(500).json({ error: "VITE_GEMINI_API_KEY is not set" });
-    }
-
-    try {
-        const { cvData } = req.body;
-
-        if (!cvData || !cvData.targetJob) {
-            return res.status(400).json({ error: "CV data and target job are required" });
-        }
-
-        const prompt = `
+    const prompt = `
       You are an expert resume writer specializing in tailoring CVs for specific job applications.
       
       TARGET JOB:
@@ -64,18 +64,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     `;
 
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        let text = response.text().trim();
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    let text = response.text().trim();
 
-        // Remove markdown code blocks if present
-        text = text.replace(/```json\n?/g, "").replace(/```\n?/g, "");
+    // Remove markdown code blocks if present
+    text = text.replace(/```json\n?/g, "").replace(/```\n?/g, "");
 
-        const tailoredData = JSON.parse(text);
+    const tailoredData = JSON.parse(text);
 
-        return res.status(200).json(tailoredData);
-    } catch (error) {
-        console.error("Error tailoring CV:", error);
-        return res.status(500).json({ error: "Failed to tailor CV" });
-    }
+    return res.status(200).json(tailoredData);
+  } catch (error) {
+    console.error("Error tailoring CV:", error);
+    return res.status(500).json({ error: "Failed to tailor CV" });
+  }
 }
