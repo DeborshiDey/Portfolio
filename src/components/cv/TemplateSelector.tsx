@@ -1,3 +1,11 @@
+import React from "react";
+import { Check } from "lucide-react";
+import { templates, TemplateId } from "@/lib/cv/templates";
+
+interface TemplateSelectorProps {
+    selectedTemplate: TemplateId;
+    onSelect: (templateId: TemplateId) => void;
+}
 
 export default function TemplateSelector({
     selectedTemplate,
